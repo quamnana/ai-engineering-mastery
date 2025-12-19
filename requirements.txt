@@ -1,0 +1,4 @@
+transformers==4.57.3
+torch==2.8.0
+openai==2.14.0
+python-dotenv==1.2.1
