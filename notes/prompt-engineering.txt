@@ -1,0 +1,74 @@
+What is Prompt Engineering?
+    - It is the art of crafting effective instructions to get desired outputs from an AI models/ LLMs.
+    - Context is everything when it comes to LLMs, it allows them to understand your request(prompt) properly to give you desired results.
+
+Key Concepts:
+    - Input-Output Reltnship: input goes to the model which generates an output based on what the model was trained on.
+    - Contextual Understanding: the model infers from the input, the task, tone and desired format of the response.
+    - Flexibility: prompts can range from simple to complex ones.
+
+Why Prompt Engineering?
+    - Desired output
+    - Increases models accuracy
+    - Reducing ambiguity
+    - Enables control by guiding models to desired output 
+
+Prompt Engineering Workflow
+    Define goal -> Craft prompt -> Test prompt -> Evaluate output -> is ouput satisfactory? --- Yes -> Use prompt
+                                                                                       |--- No -> Craft prompt again 
+
+Types of Prompts 
+    - Direct Prompts: these are explicit instructions.
+        eg: "What is the capital of Ghana"
+        Use Case: simple, factual queries.
+
+    - Open-ended Prompts: these encourage creative or exploratory responses.
+        eg: "Tell me a story about a boy and a dragon"
+        Use Case: creative writing, brainstorming
+
+    - Instructional Prompts: these are detailed instructions to do a specific task.
+        eg: "Write a 300-word essay about the US economy in 4 paragraphs"
+        Use Case: structured tasks like; summary or analysis 
+    
+    - Role-based Prompts: these assign a role or persona to the model to perform a specific task.
+        eg: "You are a customer service assistant for an e-commerce company, handle customer feedbacks"
+        Use Case: context specific responses
+    
+    - Chain-of-thought Prompts: these allows the model to think step-by-step 
+        eg: "Solve this math problem, step-by-step 30x + 12 = 50"
+        Use Case: complex problem solving 
+
+Princinples of Effective Prompt Engineering
+    - Clarity: be clear with what you want 
+    - Specificity: be specific with your prompt, no jargon or long explainations
+    - Contextualization: provide context for your prompt, for instance; talking abt bug, is it an insect or code bug?
+    - Interative Refinement: always refine your prompt until they are producing optimal responses from the models.
+    - Leverage Examples: always look at other peoples prompts.
+
+
+Prompting Techniques
+    - Few-Shot Learning: You give multiple examples to show the pattern clearly.
+        eg: “2 + 2 = 4
+            3 + 3 = 6
+            5 + 5 = ?”
+    - Zero-Shot Learning: You ask a question or give a task without any examples.
+        eg: “Translate this sentence into French: I am happy.”
+    - One-Shot Prompting: You provide one example before asking the model to perform the task.
+        eg: “English: Hello → French: Bonjour, English: Thank you → French: ?”
+    - Instruction Prompting: You explicitly tell the model what to do.
+        eg: “Write a 100-word paragraph explaining photosynthesis in simple language.”
+    - Role-Based Prompting: You assign the model a specific role or persona.
+        eg: “You are a history teacher. Explain World War I to a 10-year-old.”
+    - Chain-of-Thought Prompting: You ask the model to show its reasoning step by step.
+        eg: “Solve this math problem step by step: 23 × 4.”
+    - Temperature and Top-p Sampling: You adjust the parameters like temperature(creativity) and top-p(diversity) to control output randomness.
+
+Challenges in Prompt Engineering
+    - Ambiguity: Poor prompts can lead to irrelevant or incorrecr results. 
+        Solution= be specific and test multiple variations
+    - Bias: Prompts can introduce bias into the model's response
+        Solution=use open-ended prompts for creative tasks
+    - Scalabity: Crafting effective prompts for large-scale apps can be time-comsuming
+        Solution= develop reusable templates and automate where possible.
+
+
