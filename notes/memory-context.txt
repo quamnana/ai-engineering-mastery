@@ -1,0 +1,81 @@
+What is Context and Memory Management?
+    It is the process of storing, retrieving and managing context over previous conversations or interactions in order to respond more personally or consistently in the future.
+
+What is Memory?
+     It is the ability for an AI app to remember previous interactions or context 
+     Memory is the information the app saves for later. It is stored outside the model (in a database/file etc..).
+     It survives after the conversation ends and reused across chats or sessions.
+
+What is Context?
+    It is the information or state that is relevant to a current conversation.
+    Context is what the AI can see right now. It’s the text currently inside the AI’s context window
+
+What is Context Window?
+    It is the amount of tokens or text an LLM is able to accept and work with.
+
+Why it matters?
+    Good memory & context management makes AI:
+        More helpful
+        More consistent
+        Faster
+        More personalized
+        Better at handling complex tasks
+
+    Poor memory leads to:
+        Forgetfulness 
+        Repetition
+        Incorrect assumptions
+        Broken workflows
+
+How Context and Memory Work in AI apps.
+    Most AI apps uses "message history" to manage context and memory 
+
+    For instance;
+        OpenAI uses a messages array to manage its context. 
+        Each message has a "role" (user, system and assistant) and "content" (text of the message)
+
+Types of Memory
+    1. Short-Term Memory (Context Window): This is like the AI’s working memory.
+        It only includes the text currently in the conversation.
+        The AI reads everything in the window at once and generates a response.
+        When the window gets full, older messages fall out and the AI can't “see” them anymore.
+
+    2. Long-Term Memory: Some AI apps store specific information you tell them so it can be reused later, even in new chats.
+        eg: - Your preferences
+            - Workflows you often use
+            - Personal facts you choose to store (e.g., “I’m learning Python”)
+        This memory must be:
+            - Explicitly saved by the app
+            - Editable
+            - Optional, not automatic (important for privacy)
+
+Strategies of Context Management
+    Context management is how an AI app decides:
+        - What information to send to the AI model at any moment
+        - What to summarize
+        - What to store permanently
+        - What to drop
+    Because LLMs cannot read infinite text, apps must choose carefully.
+
+    1. Context Window Packing: Before each response, the app gathers the ff and packs them into the model’s context window. 
+        - Recent messages
+        - User instructions
+        - Relevant past info
+        
+        Some apps use ranking algorithms to decide which messages are most relevant.
+    
+    2. Summarization: For long conversations, the app compresses earlier messages into a shorter summary. This keeps important information while saving space.
+
+    3. Retrieval-Augmented Memory (RAM / RAG): This is like giving the AI a mini-search engine. The app stores conversation chunks in a vector database. When you ask something, the system:
+        - Converts your question into a vector
+        - Searches for stored vectors that match
+        - Sends the top matches to the AI
+        - This gives the model relevant memory only.
+
+Sample Persistent Memory Across Session Flow:
+    User input -> Save conversation to file -> Load conversation from file -> Generate response -> User
+
+Challenges
+    - Context window limitations
+    - Summarization accuracy: may lose crucial details 
+    - Memory persistent: storing and retrieving conversation history across several sessions can be complicated
