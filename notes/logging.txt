@@ -1,0 +1,38 @@
+What is Logging?
+    Logging is the process of recording important events and actions that happen inside an AI system so developers can understand what the system did, when it did it, and why.
+
+Why Do AI Apps Use Logging?
+    1. Debugging: If something breaks or behaves strangely, logs help developers trace the problem.
+    2. Monitoring System Health: Performance issues, crashes, slow responses, token usage or errors show up in logs.
+    3. Safety & Reliability; Developers can check whether the AI made unsafe requests, failed to call tools, or hit limits.
+    4. Compliance and Auditing: Apps may track interactions, not personal identity, to see which features work well.
+
+What To Log?
+    System/Tech Logs:
+        - Timestamp when a request was made
+        - Length of input/output
+        - Whether a tool was called (e.g., web search, database)
+        - Errors, failures, latency 
+        - System warnings or limits
+
+    AI Behavior Logs
+        - Which models were used
+        - Prompts sent to the model (sometimes anonymized)
+        - Responses generated (for debugging or training)
+
+    Application-Level Logs
+        - When a user clicked a button 
+        - When an API endpoint was hit
+        - Usage statistics (non-personal)
+
+What SHOULD NOT Be Logged (Ethically)
+    - Responsible AI systems avoid logging:
+    - Sensitive personal information
+    - Minimally necessary prompts (especially from minors)
+    - Data that can identify individuals
+    - Anything not required for safety or function
+
+    Apps should also let users delete their data when possible.
+
+Logging Lifecycle:
+    User Interaction → Log Events → Store Logs → Analyze Logs → Identify Issues → Fix and Improve → Better User Experience
