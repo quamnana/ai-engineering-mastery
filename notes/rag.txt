@@ -1,0 +1,55 @@
+What is RAG?
+    Retrieval Augmented Generation (RAG) is a technique that combines the features of both retrival-based systems and generation-based models to produce content/output that are more accurate and relevant to the response or conversation.
+    
+    RAG provides efficient ways for LLMs to co-relate with your own data. It helps an LLM give more accurate, factual, and up-to-date answers by letting it look things up instead of relying only on what it was trained on.
+
+Why RAG?
+    LLMs learn a lot from training data, but:
+        - They don’t automatically know new info
+        - They cannot store unlimited memory
+        - They may guess when unsure
+
+    RAG solves this by letting the AI pull real documents from your database, notes, PDFs, website, etc., and use them in its answer.
+
+Key Components of RAG
+    - Retriever: This is forms the system (search mechanism) that retrieves data/information from a knowledge base to be given to the LLM
+    - Generator: This is responsible for receiving the retrieved information to generate contextually relevant/accurate responses.
+    - Embeddings: These are vectors(numbers) generated from text, images etc.. using an embedding model.
+    - Vector Databases: These are used to store and retrive embeddings based on closest matches. 
+
+The RAG Triad
+    1. Query:  the input of the user.
+    2. Context: the information pulled from the knowledge base based on the Query.
+    3. Response: the out put of the LLM using the Context.
+
+    This triad ensures:
+        - Context Relevance: is the retrievedcontext relevant to the query?
+        - Groundness: is the response supported by the context?
+        - Answer Relevance: is the response relevant to the query?
+
+RAG Flow
+    Prepare Knowledge Base → Create Document Embeddings → Store Embeddings in Vector Database 
+                                        |
+    User Query → Create Query Embedding → Retrieve Relevant Documents
+                                        |
+    Augment Query + Documents as Context → Generate Response with LLM → Return Answer
+
+
+Applications of RAG
+    - Chatbots that answer from your own data, such as FAQ, docs, internal knowledge, etc.
+    - Customer support assistants pulling real ticket history.
+    - Summarization, ie; finding docs from multiple sources and summarize them.
+    - Semantic Search, where users just have to type text that is closer to what they are looking for instead of the exact thing(keyword search)
+    - Keeping AI model up to date, ie; If new info appears, just update your database — no retraining needed.
+
+Challenges of RAG 
+    - Retrieval Quality: response quality depence on the relevance of retrieved documents
+    - Computational Cost: setting up, retrieving and processing large data can be resource-intensive and costly
+    - Integration Complexity: RAG systems can be challenging to design effectively
+    - Bais in Knowledge Base: retrieved information may contain bias in the knowledge base.
+
+What is a Vector Database?
+    It is used to tranform/encode data as vectors(numbers) in a multi-dimensional space and allows these data(now vectors) to be retrieved based on similarity matches.
+
+    Vector: is anything with direction and magnitude.
+    
