@@ -16,10 +16,10 @@ openai_ef = embedding_functions.OpenAIEmbeddingFunction(
     api_key=openai_api_key, model_name="text-embedding-3-small"
 )
 
-croma_client = chromadb.PersistentClient(path="./db/chroma_persist")
+chroma_client = chromadb.PersistentClient(path="./db/chroma_persist")
 
-collection = croma_client.get_or_create_collection(
-    "my_story",
+collection = chroma_client.get_or_create_collection(
+    "my_collection",
     embedding_function=openai_ef,
 )
 
