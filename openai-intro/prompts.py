@@ -32,27 +32,43 @@ def generate_completions(prompt, stream=False):
         print(response)
 
 
-# few-shot learning
-few_short_prompt = """ These are some countries and their capital cities: 
+prompts = [
+    {
+        "type": "Few-Shot Prompting",
+        "prompt": """ These are some countries and their capital cities: 
                 'Ghana' -> 'Accra',
                 'USA' -> 'Washington DC'.
 
-                Now capital of: 'Norway'
-                """
-# generate_completions(few_short_prompt)
+                'Norway' -> ?
 
-# direct prompting
-direct_prompt = "What is the largest river in the world?"
-# generate_completions(direct_prompt)
+                Please follow same format.
+                """,
+    },
+    {
+        "type": "Direct Prompting",
+        "prompt": "What is the largest river in the world?",
+    },
+    {
+        "type": "Instructional Prompting",
+        "prompt": "Write a 100-word summary of rock formation in tropic regions.",
+    },
+    {
+        "type": "Open-Ended Prompting",
+        "prompt": "Write about what effects climate change would cause in the next 50 years",
+    },
+    {
+        "type": "Chain-of-Thought Prompting",
+        "prompt": "Solve this problem step-by-step. If it is 2am in Toronto, what will be the time is Sydney?",
+    },
+]
 
-# chain-of-thought prompting
-cot_prompt = "Solve this problem step-by-step. If it is 2am in Toronto, what will be the time is Sydney?"
-# generate_completions(cot_prompt)
-
-# instructional prompting
-instruct_prompt = "Write a 300-word summary of rock formation in tropic regions."
-# generate_completions(instruct_prompt)
-
-# open-ended prompting
-oe_prompt = "Write about what effects climate change would cause in the next 50 years"
-generate_completions(oe_prompt, stream=True)
+print(
+    "Hi! My name is Fred, your intelligent geography assistant. I will be able to help you with your geography questions."
+)
+for idx, p in enumerate(prompts, start=1):
+    prompt = p["prompt"]
+    print(f"\n{idx}. {p['type']}")
+    print(f"\nPrompt: {prompt}")
+    print("\nResponse:")
+    generate_completions(prompt, stream=True)
+    print("\n")
