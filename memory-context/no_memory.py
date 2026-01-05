@@ -26,7 +26,7 @@ def chatbot(input: str, use_ollama: bool = False):
 
 
 def main():
-    print("I am a chat bot with no memory!")
+    print("Hi! I am John, a chat bot with no memory.")
     print("\n Select a model")
     print("1. OpenAI gpt-4o-mini")
     print("2. Ollama -- local model (Llama3.2)")

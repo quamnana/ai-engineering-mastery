@@ -61,7 +61,7 @@ def summarize_messages(messages):
     return [{"role": "system", "content": summary}] + last_messages
 
 
-def save_conversation(messages, file_name="./memory-context/conversations.json"):
+def save_conversation(messages, file_name="./conversations.json"):
     try:
         with open(file_name, "w") as f:
             json.dump(messages, f)
@@ -69,7 +69,7 @@ def save_conversation(messages, file_name="./memory-context/conversations.json")
         print("An error occured when saving file: ", e)
 
 
-def load_conversation(file_name="./memory-context/conversations.json"):
+def load_conversation(file_name="./conversations.json"):
     try:
         with open(file_name, "r") as f:
             return json.load(f)
@@ -79,7 +79,7 @@ def load_conversation(file_name="./memory-context/conversations.json"):
 
 
 def main():
-    print("I am a chat bot with no memory!")
+    print("Hi! I am Fred, a chat bot with memory.")
     print("\n Select a model")
     print("1. OpenAI gpt-4o-mini")
     print("2. Ollama -- local model (Llama3.2)")
