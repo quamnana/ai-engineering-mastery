@@ -1,0 +1,17 @@
+1. Data Preparation: this includes; loading, preprocessing and structuring data.
+    This involves;
+        Document Loader -> Text Splitters -> Text Chunks -> Embeddings
+
+2. Indexes: data structures that organizes and stroes documents for efficient retrieval.
+    This involves mostly databases;
+        - Vector Store Index
+        - List Index 
+        - SQL Index 
+        - Graph Index
+
+3. Retrievers: finders of relevant documents based on query.
+    This involves;
+        Query -> Retriever -> Vector Store -> Keyword Search/Hybrid Search -> Relevant Document
+
+
+
