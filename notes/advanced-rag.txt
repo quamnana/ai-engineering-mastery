@@ -1,0 +1,244 @@
+# Naive RAG vs Advanced RAG
+
+## Naive RAG
+
+**Naive Retrieval-Augmented Generation (RAG)** is the most basic form of RAG, where retrieved documents are directly provided to the language model without additional processing or validation.
+
+### Flow
+
+```
+User Query → Embedding → Vector Search (Top-K)
+→ Retrieved Chunks → LLM → Response
+```
+
+### Characteristics
+
+* Single-step vector retrieval
+* No query rewriting or decomposition
+* No reranking or filtering
+* Retrieved content is blindly trusted
+* Simple prompt construction
+
+### Advantages
+
+* Easy to implement
+* Low latency
+* Useful for prototyping and learning
+
+### Limitations
+
+* High chance of irrelevant context
+* Increased hallucination risk
+* Poor performance on complex or ambiguous queries
+* Not suitable for large or noisy datasets
+
+---
+
+## Advanced RAG
+
+**Advanced RAG** enhances naive RAG by improving retrieval quality, context selection, and answer grounding to support reliable, production-ready systems.
+
+### Flow
+
+```
+User Query → Query Rewrite / Decomposition
+→ Hybrid Retrieval (Vector + Keyword)
+→ Reranking → Context Filtering / Compression
+→ Prompt Construction → LLM → Grounded Response
+```
+
+### Characteristics
+
+* Query rewriting or multi-query expansion
+* Hybrid retrieval (semantic + lexical)
+* Reranking using cross-encoders
+* Context filtering, deduplication, and compression
+* Structured prompts with citations
+* Optional answer validation against sources
+
+### Advantages
+
+* Higher accuracy and relevance
+* Reduced hallucinations
+* Better handling of complex questions
+* Scales well to large knowledge bases
+
+### Limitations
+
+* More complex to design and maintain
+* Higher compute and latency costs
+* Requires careful evaluation and tuning
+
+---
+
+## Summary
+
+| Aspect               | Naive RAG   | Advanced RAG       |
+| -------------------- | ----------- | ------------------ |
+| Retrieval            | Vector-only | Hybrid + reranking |
+| Context quality      | Low–Medium  | High               |
+| Hallucination risk   | High        | Low                |
+| Complexity           | Low         | High               |
+| Production readiness | No          | Yes                |
+
+---
+
+### Key Takeaway
+
+> **Naive RAG is retrieval + generation. Advanced RAG is retrieval + reasoning + grounding.**
+
+
+### Naive RAG vs Advanced RAG — Bullet Notes
+
+---
+
+### Naive RAG
+
+* Basic form of Retrieval-Augmented Generation
+* Directly retrieves documents and passes them to the LLM
+* Uses single-step vector similarity search
+* No query rewriting or decomposition
+* No reranking or relevance filtering
+* Retrieved chunks are blindly trusted
+* Simple prompt construction
+* Easy to implement and fast
+* Suitable for learning and prototyping
+* High risk of irrelevant context
+* Higher hallucination probability
+* Performs poorly on complex queries
+* Not production-ready
+
+---
+
+### Advanced RAG
+
+* Enhanced and production-grade RAG approach
+* Improves retrieval quality and response grounding
+* Uses query rewriting or multi-query expansion
+* Supports hybrid retrieval (vector + keyword search)
+* Applies reranking using cross-encoders
+* Filters, deduplicates, and compresses context
+* Uses structured and controlled prompts
+* Can include citations and source references
+* Optional answer validation against retrieved content
+* More accurate and reliable responses
+* Scales well to large and noisy datasets
+* Higher compute and system complexity
+* Suitable for enterprise and critical applications
+
+---
+
+### Key Differences
+
+* Naive RAG focuses on simplicity and speed
+* Advanced RAG focuses on accuracy and reliability
+* Naive RAG retrieves and generates
+* Advanced RAG retrieves, filters, validates, and grounds
+
+
+
+# Advanced RAG Techniques
+
+Advanced Retrieval-Augmented Generation (RAG) techniques are used to improve the accuracy, relevance, and reliability of LLM responses by enhancing how information is retrieved, processed, and validated before generation.
+
+---
+
+## Query Enhancement Techniques
+
+These techniques improve the quality of the search query before retrieval.
+
+* Query rewriting to clarify user intent
+* Query expansion using multiple related queries
+* Query decomposition for multi-hop or complex questions
+* Hypothetical document generation (HyDE) to guide retrieval
+* Intent classification prior to retrieval
+
+---
+
+## Retrieval Techniques
+
+These techniques improve how relevant documents are selected.
+
+* Hybrid retrieval combining vector search and keyword search
+* Multi-vector retrieval at document and passage levels
+* Metadata-based filtering (time, source, tags, etc.)
+* Parent–child chunk retrieval for better context coverage
+* Graph-based retrieval using entities and relationships
+
+---
+
+## Reranking Techniques
+
+These techniques reorder retrieved documents for relevance.
+
+* Cross-encoder reranking models
+* LLM-based reranking
+* Score fusion across multiple retrievers
+* Diversity-aware reranking (MMR)
+
+---
+
+## Context Optimization Techniques
+
+These techniques improve the quality of context passed to the LLM.
+
+* Relevance-based chunk filtering
+* Context deduplication
+* Context compression or summarization
+* Sliding window context selection
+* Dynamic context length allocation
+
+---
+
+## Prompt Engineering Techniques
+
+These techniques guide the LLM to produce grounded responses.
+
+* Structured prompt formats
+* Explicit grounding instructions
+* Citation and source attribution prompts
+* Few-shot examples for response consistency
+
+---
+
+## Generation Control Techniques
+
+These techniques constrain and control model output.
+
+* Schema-based or JSON-constrained generation
+* Step-by-step reasoning prompts
+* Output length and format control
+* Tool-assisted generation
+
+---
+
+## Answer Verification and Guardrails
+
+These techniques ensure the response is faithful to retrieved data.
+
+* Post-generation answer verification
+* Faithfulness and hallucination checks
+* Confidence scoring of responses
+* Fallback strategies for weak retrieval
+
+---
+
+## Indexing and Chunking Improvements
+
+These techniques improve how documents are prepared.
+
+* Semantic chunking instead of fixed-size chunks
+* Overlapping chunks for continuity
+* Hierarchical chunking (section → paragraph → sentence)
+* Entity-aware chunking
+
+---
+
+## Feedback and Learning Loops
+
+These techniques help continuously improve RAG systems.
+
+* User feedback integration
+* Retrieval and response logging
+* Offline evaluation with benchmark queries
+* Periodic embedding refresh

@@ -16,3 +16,4 @@ openai-whisper==20250625
 soundfile
 sounddevice
 elevenlabs
+langgraph 
