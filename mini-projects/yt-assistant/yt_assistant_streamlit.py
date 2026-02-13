@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from yt_summarizer import (
+from yt_assistant import (
     embedding_model_selection,
     llm_selection,
     download_video_and_extract_audio,
